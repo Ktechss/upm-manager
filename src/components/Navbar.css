@@ -1,0 +1,66 @@
+/* Navbar.css */
+/* Side Navigation Styles */
+.side-nav {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #000000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo-container {
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the links */
+    width: 100%;
+  }
+  
+  .side-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .side-nav li {
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  .side-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .side-nav a:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .side-nav a.active {
+    background-color: #ffffff;
+    color: black;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,168 @@
+/* Reset and Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1 {
+  color: #343a40;
+  text-align: center;
+  margin: 20px 0;
+}
+.main-app{
+  display: flex;
+
+}
+.main-container{
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+
+
+/* Main Content Layout */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #000000;
+  color: white;
+  text-transform: uppercase;
+}
+
+td {
+  color: #343a40;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.reply {
+  background-color: #28a745;
+  color: white;
+}
+
+button.reply:hover {
+  background-color: #218838;
+}
+
+button.cancel {
+  background-color: #dc3545;
+  color: white;
+}
+
+button.cancel:hover {
+  background-color: #c82333;
+}
+
+button.sort {
+  background-color: #ffc107;
+  color: black;
+}
+
+button.sort:hover {
+  background-color: #e0a800;
+}
+
+/* Reply Box Styles */
+.reply-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .side-nav {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+    padding: 15px;
+  }
+
+  .reply-box {
+    width: 90%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .side-nav {
+    width: 150px;
+  }
+
+  .main-content {
+    margin-left: 150px;
+    padding: 10px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+}
