@@ -10,7 +10,7 @@ const ContactTable = ({ contacts }) => {
             <th>Email</th>
             <th>Region</th>
             <th>Category</th>
-            <th>Description</th>
+            <th>Query</th>
           </tr>
         </thead>
         <tbody>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchContactLogs, fetchContactDetails, sendEmail } from '../services/api';
+import * as XLSX from 'xlsx';
 
 const ApplicationStatus = () => {
   const [contactLogs, setContactLogs] = useState([]);
@@ -81,6 +82,23 @@ const ApplicationStatus = () => {
     setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'));
   };
 
+  const handleDownloadExcel = () => {
+    try {
+      const worksheet = XLSX.utils.json_to_sheet(
+        filteredLogs.map((log) => ({
+          Name: `${log.first_name} ${log.last_name}`,
+          Query: log.description,
+          Action: log.action,
+        }))
+      );
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Contact Logs');
+      XLSX.writeFile(workbook, 'ContactLogs.xlsx');
+    } catch (error) {
+      console.error('Error exporting to Excel:', error);
+    }
+  };
+
   useEffect(() => {
     fetchAllContactLogs();
   }, [sortOrder]);
@@ -98,6 +116,15 @@ const ApplicationStatus = () => {
           Sort by Time: {sortOrder === 'asc' ? 'Ascending' : 'Descending'}
         </button>
       </div>
+      <div className="download-container">
+        <button
+          className="download-button"
+          onClick={handleDownloadExcel}
+          style={{ backgroundColor: 'green', color: 'white', padding: '10px 15px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+        >
+          Download Excel
+        </button>
+      </div>
       <div className="summary">
         <strong>Total Applications:</strong> {filteredLogs.length} (of {contactLogs.length})
       </div>
@@ -105,7 +132,7 @@ const ApplicationStatus = () => {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Description</th>
+            <th>Query</th>
             <th>Action</th>
             <th>Actions</th>
           </tr>
